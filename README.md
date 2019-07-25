@@ -1,24 +1,21 @@
-# README
+## Discription
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my portfolio site.
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+coming soon...
 
-* System dependencies
+## DB設計
 
-* Configuration
+## portfoliosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|environment|string|null: false|
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null: false|
+|portfolio_id|references|null: false,index: true,foreign_key: true|
