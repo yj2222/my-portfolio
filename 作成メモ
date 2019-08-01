@@ -16,4 +16,14 @@ config.assets.js_compressor = :uglifier
 http://taremimi.hatenablog.jp/entry/2018/03/31/044914
 
 
+本番環境でログインページに遷移できない。
+確認したログ。
+2019-08-01T08:53:43.293085+00:00 app[web.1]: F, [2019-08-01T08:53:43.293006 #4] FATAL -- : [ccd6b968-f581-400d-8515-a445cb26d486] ActionView::Template::Error (:ja is not a valid locale):
+存在しないロケールをがあるとエラーになる？
 
+参照URL
+https://qiita.com/katsuyuki/items/9f9f202047cdef7f11a6
+
+gifをループさせる
+以下を使ってループの設定をかえる。
+https://ezgif.com/loop-count
