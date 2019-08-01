@@ -21,6 +21,9 @@ module MyPortfolio
       g.javascripts false
       g.helper false
       g.test_framework false
+      # ActionView::Template::Error (:ja is not a valid locale):
+      # 本番で上記が出たので以下を追記
+      I18n.enforce_available_locales = false
       config.time_zone = 'Tokyo'
       config.i18n.default_locale = :ja
     end
