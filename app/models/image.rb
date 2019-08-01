@@ -1,4 +1,4 @@
 class Image < ApplicationRecord
   belongs_to :portfolio
-  mount_uploader :url, ImageUploader
+  mount_uploader :image, ImageUploader
 end

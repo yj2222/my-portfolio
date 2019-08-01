@@ -20,6 +20,22 @@ $blue-white-dark: rgb(151, 151, 254);
   position: relative;
 }
 
+.portfolio__top__inner__login {
+  box-sizing: border-box;
+  ul {
+    padding: 30px;
+    li {
+      text-align: right;
+      a {
+        color: rgb(191, 191, 191);
+        &:hover {
+          color: rgb(47, 47, 250);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
 .portfolio__top__inner--text {
   width: 100%;
   text-align: center;
@@ -56,11 +72,12 @@ $blue-white-dark: rgb(151, 151, 254);
       border-radius: 3px;
       padding: 10px;
       margin: 20px;
+      position: relative;
       &:hover {
         box-shadow:0px 0px 10px 5px $green-black;
         transition: 0.3s;
       }
-      .card__title {
+      .card__inner__title {
         padding-bottom: 10px;
         h3 {
           font-size: 25px;
@@ -71,7 +88,7 @@ $blue-white-dark: rgb(151, 151, 254);
           font-size: 16px;
         }
       }
-      .card__image {
+      .card__inner__image {
         width: 100%;
         border: 1px solid $green-black;
         border-radius: 3px;
@@ -80,11 +97,27 @@ $blue-white-dark: rgb(151, 151, 254);
       h4 {
         font-size: 16px;
       }
-      .card__environment {
+      .card__inner__environment {
         font-size: 14px;
         padding: 10px;
         color: gray;
       }
+    }
+  }
+}
+
+.card__action-btn {
+  width: 270px;
+  position: absolute;
+  bottom: 0;
+  left: 190px;
+  display: flex;
+  a {
+    padding-left: 10px;
+    color: blue;
+    &:hover {
+      color: blue;
+      opacity: 0.5;
     }
   }
 }
@@ -102,7 +135,7 @@ $blue-white-dark: rgb(151, 151, 254);
 }
 
 .portfolio__low__inner {
-  background-color: rgba(0, 60, 7, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   height: 100%;
   color: white;
   h2 {
@@ -183,3 +216,50 @@ $blue-white-dark: rgb(151, 151, 254);
 .profile__right__career--icon {
 }
 
+.portfolio__copyright {
+  box-sizing: border-box;
+  background-color: black;
+  height: 10vh;
+  text-align: center;
+  padding-top: 30px;
+  small {
+    color: white;
+  }
+}
+
+.form-login {
+  width: 300px;
+  margin: 0 auto;
+
+}
+
+
+.field__box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.remember-me {
+  margin-top: 20px;
+}
+
+.actions {
+  input {
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    margin: 10px 0;
+    background-color: $green-black;
+    border: 1px solid $green-black;
+    &:hover {
+      background-color: rgb(56, 164, 56);
+      color: white;
+      box-shadow:0px 0px 10px 5px $green-black;
+      
+      transition: 0.3s;
+    }
+  }
+}
