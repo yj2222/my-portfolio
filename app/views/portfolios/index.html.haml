@@ -1,6 +1,18 @@
 .portfolio
   .portfolio__top
     .portfolio__top__inner
+      - if user_signed_in?
+        .portfolio__top__inner__login
+          %ul
+            %li
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
+            %li
+              = link_to "新規投稿", new_portfolio_path
+      - else
+        .portfolio__top__inner__login
+          %ul
+            %li
+              = link_to "管理者ログイン", "/users/sign_in"
       .portfolio__top__inner--text
         %h1 my portfolio
         %p これは自分のポートフォリオを掲載するために作ったサイトです。
@@ -8,251 +20,28 @@
   .portfolio__main
     %h2 portfolios
     %ul.clearfix
-      %li.card
-        %p.index 1
-        .card__title
-          %h3 ■ chat-space
-          %p (ツイート系アプリ)
-        =image_tag "chat-space_image_1.png", class: "card__image"
-        %h4 ■ 開発環境、使用した技術など
-        .card__environment
-          %p ・rails5.0.7.2
-          %p ・ruby2.5.1
-          %p ・jquery
-          %p ・MYSQL(データベース)          
-          %p ・Ajaxを使った非同期通信,自動更新
-          %p ・AWS(EC2)
-          %p ・S3(画像アップロード)
-          %p ・単体テスト
-          %p ・統合テスト
-      %li.card
-        %p.index 2
-        .card__title
-          %h3 ■ weather-app
-          %p (天気予報アプリ)
-        =image_tag "weather-app_image_1.png", class: "card__image"
-        %h4 ■ 開発環境、使用した技術など
-        .card__environment
-          %p ・rails5.2.0
-          %p ・ruby2.5.1
-          %p ・jquery
-          %p ・API通信(Open Weathe API)
-          %p ・heroku(デプロイ)
-      %li.card
-        %p.index 3
-        .card__title
-          %h3 ■ furima-clone-app
-          %p (某フリマアプリのクローン)
-        =image_tag "merukari-clone-app.jpg", class: "card__image"
-        %h4 ■ 開発環境、使用した技術など
-        .card__environment
-          %p ・rails5.2.0
-          %p ・ruby2.5.1
-          %p ・jquery
-          %p ・MYSQL(データベース)          
-          %p ・AWS(EC2)
-          %p ・S3(画像アップロード)
-          %p ・Basic認証
-          %p ※ 某ITスクールの作成物です。
-          %p ※ また”グループ”でのアジャイル開発にて作成しました。作成期間は１ヶ月です。
-      %li.card
-        %p.index 4
-        .card__title
-          %h3 ■ Currently being created
-          %p (レストラン情報系アプリ)
-        =image_tag "gurunabi_image_1.png", class: "card__image"
-        %h4 ■ 開発環境、使用した技術など
-        .card__environment
-          %p ・作成予定のアプリ
-          %p ・ぐるなびのAPIを使ったサイトを作成予定。
-  .portfolio__low
-    .portfolio__low__inner
-      %h2 profile
-      %ul.profile
-        %li.profile__left
-          %h5 ■ 基本データ、自己紹介
-          .profile__left__text
-            =image_tag "profile_image_1.jpg", class: "profile__left--image"
-            %b ・NAME : Yuji Masujima
-            %b ・INTRODUCTION :
-            %p 駆け出しエンジニアです。
-            %p 何度も挫折と挑戦を繰り返し、なんとか形になるものを作成できるまでになりました。
-            %p 夢は誰にも認められる人間（エンジニア）になること。
-            %p 海外で働いていた経験を元に、チャンスがあれば海外に事業展開していきたいなんて思っています。
-        %li.profile__right
-          %h5 ■ 経歴
-          .profile__right__career
-            %b ・2009年〜2013年
-            %p 高校卒業後、家を出て音楽活動を行う。
-            = icon 'fas', 'arrow-down', class: "profile__right__career--icon"
-          .profile__right__career
-            %b ・2013年〜2017年
-            %p 就職（国交省システムの運用、監視）
-            %p 監視がメイン。2年ほど、チームのサブリーダを務める。
-            = icon 'fas', 'arrow-down', class: "profile__right__career--icon"
-          .profile__right__career
-            %b ・2017年〜2019年
-            %p ドバイの会社に就職（新規事業の手伝い）
-            %p 海外での会社の経営に興味があったので、勉強がてらドバイで就職。
-            %p 自社のホームページ開発にも携わった。
-            .profile__right__career__link
-              %p 詳しくは
-              .profile__right__career__link--show
-                = link_to "https://maikospa.com/" do
-                  = icon 'fas', 'external-link-alt'
-                  %b こちら
-              %p.text-last から確認することができます。
-            %p (海外のサーバ経由なので、動作が重いうえ、今は稼働してないみたいです...)
-            = icon 'fas', 'arrow-down', class: "profile__right__career--icon"
-          .profile__right__career
-            %b ・2019年〜現在至
-            %p 4月から某ITスクールに通う。個人開発、チーム開発でアプリを作成。
-            %p ruby,rails,jqueryをメインに開発。
+      // リスト
+      - @portfolios.each.with_index do |pf|
+        %li.card
+          .card__inner
+            %p.index
+              = pf.id
+            .card__inner__title
+              %h3
+                = pf.title
+              %p
+                = pf.sub_title
+            = image_tag "#{pf.top_image}", class: "card__inner__image"
+            %h4 ■ 開発環境、使用した技術など
+            .card__inner__environment
+              %p
+                = simple_format(pf.environment)
+          - if user_signed_in?
+            .card__action-btn
+              = link_to "Edit", ""
+              = link_to "Delete", portfolio_path(pf.id), method: :delete
 
+  = render partial: "index_footer"
 
-.modal.js-modal_1
-  // モーダルバックグラウンド
-  .modal__bg.js-modal-close
-  // モーダル中身
-  .modal__content
-    .modal__content__title
-      %b title :
-      %p chat-space
-    .modal__content__image
-      %b 使用イメージ :
-      .modal__content__image__list
-        =image_tag "modal/chat-space/chat-space_sign-in.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_sign-in_2.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_1.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_2.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_3.gif", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_4.gif", class: "modal__content__image__list--preview"
-    .modal__content__discription
-      %b discription :
-      %p ・ツイート系のアプリ
-      %p ・deviseを使った、ログイン機能
-      %p ・チャットグループを作成しメッセージ送信機能
-      %p ・carrierwaveを使った画像の投稿機能
-      %p ・Ajax通信技術を使った非同期通信や自動更新機能
-      %p ・rspecを使用し、単体テスト、統合テストを実施
-    .modal__content__usage
-      %b usage : 
-      %p ・以下のテスト用アカウントです。こちらのアカウントにてログイン願います。
-      %p ・テスト用アカウント→test1@gmail.com
-      %p ・テスト用アカウントパスワード→test1111
-      %p ・詳しい使い方は、下記”github URL”のREADMEに記載しています。
-    .modal__content__info
-      .modal__content__info--github
-        %b github URL : 
-        = link_to "https://github.com/yj2222/chat-space" do
-          %p https://github.com/yj2222/chat-space
-      .modal__content__info--app
-        %b apprication URL : 
-        = link_to "http://52.197.52.84" do
-          %p http://52.197.52.84
-    = link_to "Close", "#",  class: "js-modal-close"
-
-.modal.js-modal_2
-  // モーダルバックグラウンド
-  .modal__bg.js-modal-close
-  // モーダル中身
-  .modal__content
-    .modal__content__title
-      %b title :
-      %p weather-app
-    .modal__content__image
-      %b 使用イメージ :
-      .modal__content__image__list
-        =image_tag "modal/weather-app/weather-app_image_1.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/weather-app/weather-app_image_2.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/weather-app/weather-app_image_3.gif", class: "modal__content__image__list--preview"
-    .modal__content__discription
-      %b discription :
-      %p ・天気予報アプリ
-      %p ・Open Weather API を使用した天気予報。
-    .modal__content__usage
-      %b usage : 
-      %p ・画面から地域を選択して、searchボタンを押せば1日の天気が表示されます。
-      %p ・詳しい使い方は、下記”github URL”のREADMEまたは、アプリの右上"How to ?"からでも確認できます。
-    .modal__content__info
-      .modal__content__info--github
-        %b github URL : 
-        = link_to "https://github.com/yj2222/weather_app" do
-          %p https://github.com/yj2222/weather_app
-      .modal__content__info--app
-        %b apprication URL : 
-        = link_to "https://immense-scrubland-75119.herokuapp.com/" do
-          %p https://immense-scrubland-75119.herokuapp.com/
-    = link_to "Close", "#",  class: "js-modal-close"
-
-.modal.js-modal_3
-  // モーダルバックグラウンド
-  .modal__bg.js-modal-close
-  // モーダル中身
-  .modal__content
-    .modal__content__title
-      %b title :
-      %p furima-clone-app
-    .modal__content__image
-      %b 使用イメージ :
-      .modal__content__image__list
-        =image_tag "modal/furima_clone_app/furima_clone_image_1.jpg", class: "modal__content__image__list--preview"
-        =image_tag "modal/furima_clone_app/furima_clone_image_2.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/furima_clone_app/furima_clone_image_3.jpg", class: "modal__content__image__list--preview"
-        =image_tag "modal/furima_clone_app/furima_clone_image_4.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/furima_clone_app/furima_clone_image_5.png", class: "modal__content__image__list--preview"
-    .modal__content__discription
-      %b discription :
-      %p ※こちらグループ作成の作成物になります。自分の担当は出品ページなのでこの作成物の全てを把握している訳ではありません。
-      %p ・form_forを使った、商品の出品機能。
-      %p ・fielsd_forを使って、フォームのネスト化し対応するテーブルにレコードを保存。
-      %p ・Dropzone.jsを使った、画像ドロップ機能。
-      %p ・enumを使った、カテゴリー表示。
-      %p ・必須項目のバリデーション（空は保存できない）
-    .modal__content__usage
-      %b usage : 
-      %p ・右下の出品ボタンより、出品ページに遷移できます。
-      %p ・ベーシック認証ID→53d
-      %p ・ベーシック認証IDワスワード→admin
-      %p ・実際に出品を行う場合は、ログインが必要になります。以下にテスト用、アカウントを記載しますので是非お試しください。
-      %p ・テスト用アカウント→test1@gmail.com
-      %p ・テスト用アカウントパスワード→111111
-    .modal__content__info
-      .modal__content__info--github
-        %b github URL : 
-        = link_to "https://github.com/yj2222/freemarket_sample_53d" do
-          %p https://github.com/yj2222/freemarket_sample_53d
-      .modal__content__info--app
-        %b apprication URL : 
-        = link_to "http://54.249.3.233/" do
-          %p http://54.249.3.233/
-    = link_to "Close", "#",  class: "js-modal-close"
-
-.modal.js-modal_4
-  // モーダルバックグラウンド
-  .modal__bg.js-modal-close
-  // モーダル中身
-  .modal__content
-    .modal__content__title
-      %b title :
-      %p coming soon
-    .modal__content__image
-      %b 使用イメージ :
-      .modal__content__image__list
-        %p ※ 現在作成中のアプリです、イメージはありません。
-    .modal__content__discription
-      %b discription :
-      %p ※ 現在作成中のアプリです、説明はありません。
-    .modal__content__usage
-      %b usage : 
-      %p ※ 現在作成中のアプリです、説明はありません。
-    .modal__content__info
-      .modal__content__info--github
-        %b github URL : 
-        = link_to "" do
-          %p ※ 現在作成中のアプリです、URLはありません。
-      .modal__content__info--app
-        %b apprication URL : 
-        = link_to "" do
-          %p  ※ 現在作成中のアプリです、URLはありません。
-    = link_to "Close", "#",  class: "js-modal-close"
+.modal_list
+  

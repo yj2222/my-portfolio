@@ -1,0 +1,47 @@
+.post {
+  background-image: url("new_background.jpg");
+  height: 100vh;
+  background-size: cover;
+  font-family: 'Times New Roman', Times, serif;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: white;
+}
+
+.post__inner {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+
+.post__inner__title {
+  text-align: center;
+  padding: 50px;
+  h1 {
+    font-size: 50px;
+  }
+}
+
+.post__inner__form {
+  max-width: 600px;
+  height: 70%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  border-radius: 3px;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  height: 200px;
+  border-radius: 3px;
+}
+
+.post__inner__form__middle {
+  margin-top: 20px;
+}
