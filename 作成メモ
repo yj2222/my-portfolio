@@ -1,44 +1,19 @@
 背景画像がherokuに表示されない場合の対応
 https://codeday.me/jp/qa/20190210/238118.html
 
-.modal.js-modal_1
-  // モーダルバックグラウンド
-  .modal__bg.js-modal-close
-  // モーダル中身
-  .modal__content
-    .modal__content__title
-      %b title :
-      %p chat-space
-    .modal__content__image
-      %b 使用イメージ :
-      .modal__content__image__list
-        =image_tag "modal/chat-space/chat-space_sign-in.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_sign-in_2.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_1.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_2.png", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_3.gif", class: "modal__content__image__list--preview"
-        =image_tag "modal/chat-space/chat-space_main_4.gif", class: "modal__content__image__list--preview"
-    .modal__content__discription
-      %b discription :
-      %p ・ツイート系のアプリ
-      %p ・deviseを使った、ログイン機能
-      %p ・チャットグループを作成しメッセージ送信機能
-      %p ・carrierwaveを使った画像の投稿機能
-      %p ・Ajax通信技術を使った非同期通信や自動更新機能
-      %p ・rspecを使用し、単体テスト、統合テストを実施
-    .modal__content__usage
-      %b usage : 
-      %p ・以下のテスト用アカウントです。こちらのアカウントにてログイン願います。
-      %p ・テスト用アカウント→test1@gmail.com
-      %p ・テスト用アカウントパスワード→test1111
-      %p ・詳しい使い方は、下記”github URL”のREADMEに記載しています。
-    .modal__content__info
-      .modal__content__info--github
-        %b github URL : 
-        = link_to "https://github.com/yj2222/chat-space" do
-          %p https://github.com/yj2222/chat-space
-      .modal__content__info--app
-        %b apprication URL : 
-        = link_to "http://52.197.52.84" do
-          %p http://52.197.52.84
-    = link_to "Close", "",  class: "js-modal-close"
+herokuデプロイ時に以下がでた。
+remote:  !     Precompiling assets failed.
+
+どこでこけたかログをたどると以下があった。
+remote:        rake aborted!
+remote:        Uglifier::Error: Unexpected character '`'
+
+バックコートリテラルが読み込めないのがクリティルなエラー
+config/environments/production.rbの以下をコメントアウト。
+config.assets.js_compressor = :uglifier
+
+参照URL
+http://taremimi.hatenablog.jp/entry/2018/03/31/044914
+
+
+
