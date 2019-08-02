@@ -1,7 +1,6 @@
 背景画像がherokuに表示されない場合の対応
 https://codeday.me/jp/qa/20190210/238118.html
 
-
 herokuデプロイ時に以下がでた。
 remote:  !     Precompiling assets failed.
 
@@ -40,5 +39,3 @@ heroku config:set AWS_S3_BUCKET=my-portfolio-pictures
 
 環境変数の確認
 heroku config
-
-
