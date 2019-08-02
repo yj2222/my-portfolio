@@ -27,3 +27,15 @@ https://qiita.com/katsuyuki/items/9f9f202047cdef7f11a6
 gifをループさせる
 以下を使ってループの設定をかえる。
 https://ezgif.com/loop-count
+
+S3を使う
+https://qiita.com/params_bird/items/dc2a3868f4a2caf0504c
+補足
+heroku config:set AWS_S3_REGION="ap-northeast-1"
+heroku config:set AWS_IAM_ACCESS_KEY_ID="AKIAVUQUQDJACF76QDQO"
+heroku config:set AWS_IAM_ACCESS_KEY="vywrL/33pLaIwe8lb7ds5kTDWqZWB+OTIeonrYoD"
+※””はつけない。あるとなぜかこいつだけ、文字列として認識される。記事のままだとバケット名がおかしいみたいなエラーが出る。
+heroku config:set AWS_S3_BUCKET=my-portfolio-pictures
+
+環境変数の確認
+heroku config
