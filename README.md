@@ -5,9 +5,9 @@ my-portfolio
 ====
 
 This is my portfolio site.
-
+<br>
 ## environment
-  ・ruby2.5.1
+  ・ruby2.5.1<br>
   ・rails5.2.3
   ・Haml記法
   ・scss
