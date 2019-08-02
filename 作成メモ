@@ -1,6 +1,7 @@
 背景画像がherokuに表示されない場合の対応
 https://codeday.me/jp/qa/20190210/238118.html
 
+<<<<<<< Updated upstream
 .modal.js-modal_1
   // モーダルバックグラウンド
   .modal__bg.js-modal-close
@@ -42,3 +43,45 @@ https://codeday.me/jp/qa/20190210/238118.html
         = link_to "http://52.197.52.84" do
           %p http://52.197.52.84
     = link_to "Close", "",  class: "js-modal-close"
+=======
+herokuデプロイ時に以下がでた。
+remote:  !     Precompiling assets failed.
+
+どこでこけたかログをたどると以下があった。
+remote:        rake aborted!
+remote:        Uglifier::Error: Unexpected character '`'
+
+バックコートリテラルが読み込めないのがクリティルなエラー
+config/environments/production.rbの以下をコメントアウト。
+config.assets.js_compressor = :uglifier
+
+参照URL
+http://taremimi.hatenablog.jp/entry/2018/03/31/044914
+
+
+本番環境でログインページに遷移できない。
+確認したログ。
+2019-08-01T08:53:43.293085+00:00 app[web.1]: F, [2019-08-01T08:53:43.293006 #4] FATAL -- : [ccd6b968-f581-400d-8515-a445cb26d486] ActionView::Template::Error (:ja is not a valid locale):
+存在しないロケールをがあるとエラーになる？
+
+参照URL
+https://qiita.com/katsuyuki/items/9f9f202047cdef7f11a6
+
+gifをループさせる
+以下を使ってループの設定をかえる。
+https://ezgif.com/loop-count
+
+S3を使う
+https://qiita.com/params_bird/items/dc2a3868f4a2caf0504c
+補足
+heroku config:set AWS_S3_REGION="ap-northeast-1"
+heroku config:set AWS_IAM_ACCESS_KEY_ID="AKIAVUQUQDJACF76QDQO"
+heroku config:set AWS_IAM_ACCESS_KEY="vywrL/33pLaIwe8lb7ds5kTDWqZWB+OTIeonrYoD"
+※””はつけない。あるとなぜかこいつだけ、文字列として認識される。記事のままだとバケット名がおかしいみたいなエラーが出る。
+heroku config:set AWS_S3_BUCKET=my-portfolio-pictures
+
+環境変数の確認
+heroku config
+
+
+>>>>>>> Stashed changes
