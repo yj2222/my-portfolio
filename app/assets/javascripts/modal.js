@@ -19,9 +19,10 @@ $(document).on('turbolinks:load', function () {
         data: {portfolio_id: num}
       })
       .done(function (images) {
-        images = images[0].images.url
-        add_image = build_to_image(images)
-        image_list.append(add_image)    
+        images.forEach(function (image) {
+          add_image = build_to_image(image.images.url)
+          image_list.append(add_image)
+        })  
       })
 
       $('.js-modal-close').on('click',function(){
