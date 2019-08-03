@@ -1,7 +1,7 @@
 .post
   .post__inner
     .post__inner__title
-      %h1 New Post
+      %h1 Edit Post
     .post__inner__form
       = form_for @post do |f|
         .post__innert__form__top
@@ -32,7 +32,7 @@
         = f.fields_for :images do |fi|
           .post__inner__form__middle
             = f.label :image, "Image (modalのイメージ、1枚のみ投稿可能) : "
-            = fi.file_field :image
+            = fi.file_field :image, value: "aaa"
 
         .post__form__action
           = f.submit "Send"

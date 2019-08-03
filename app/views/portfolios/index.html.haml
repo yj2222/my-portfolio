@@ -38,7 +38,7 @@
                 = simple_format(pf.environment)
           - if user_signed_in?
             .card__action-btn
-              = link_to "Edit", ""
+              = link_to "Edit", edit_portfolio_path(pf.id)
               = link_to "Delete", portfolio_path(pf.id), method: :delete
 
   = render partial: "index_footer"
