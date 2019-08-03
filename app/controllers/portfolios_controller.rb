@@ -20,6 +20,16 @@ class PortfoliosController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @post = Portfolio.find(params[:id])
+  end
+
+  def update
+    @post = Portfolio.find(params[:id])
+    @post.update(post_params)
+    redirect_to root_path
+  end
+
   private
 
   def post_params

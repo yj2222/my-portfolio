@@ -1,0 +1,39 @@
+.post
+  .post__inner
+    .post__inner__title
+      %h1 Edit Post
+    .post__inner__form
+      = form_for @post do |f|
+        .post__innert__form__top
+          = f.label :title, "Title : "
+          = f.text_field :title
+        .post__inner__form__middle
+          = f.label :sub_title, "Sub_title : "
+          = f.text_field :sub_title
+        .post__inner__form__middle
+          = f.label :top_image, "Top_image (Topページの画像、1枚のみ投稿可能) : "
+          = f.file_field :top_image
+        .post__inner__form__middle
+          = f.label :environment, "Environment : "
+          = f.text_area :environment
+        .post__inner__form__middle
+          = f.label :discription, "Discription : "
+          = f.text_area :discription
+        .post__inner__form__middle
+          = f.label :usage, "Usage : "
+          = f.text_area :usage
+        .post__inner__form__middle
+          = f.label :github_url, "Github_url : "
+          = f.text_field :github_url
+        .post__inner__form__middle
+          = f.label :app_url, "App_url : "
+          = f.text_field :app_url
+
+        = f.fields_for :images do |fi|
+          .post__inner__form__middle
+            = f.label :image, "Image (modalのイメージ、1枚のみ投稿可能) : "
+            = fi.file_field :image, value: "aaa"
+
+        .post__form__action
+          = f.submit "Send"
+      
