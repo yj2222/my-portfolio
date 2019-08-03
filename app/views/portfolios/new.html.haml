@@ -31,7 +31,7 @@
 
         = f.fields_for :images do |fi|
           .post__inner__form__middle
-            = f.label :image, "Image (modalのイメージ、複数枚投稿可能) : "
+            = f.label :image, "Image (modalのイメージ、1枚のみ投稿可能) : "
             = fi.file_field :image
 
         .post__form__action
