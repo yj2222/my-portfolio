@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  before_action :set_post, only: [:destroy,:edit,:update]
 
   def index
     @portfolios = Portfolio.all
@@ -16,21 +17,30 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    @portfolio = Portfolio.destroy(params[:id])
+    @post.destroy
     redirect_to root_path
   end
 
   def edit
-    @post = Portfolio.find(params[:id])
   end
 
   def update
-    @post = Portfolio.find(params[:id])
+    if params[:portfolio][:images_attributes].present?
+      num = 0
+      while params[:portfolio][:images_attributes]["#{num}"].present? do
+        @post.images[num].destroy
+        num += 1
+      end
+    end
     @post.update(post_params)
     redirect_to root_path
   end
 
   private
+
+  def set_post
+    @post = Portfolio.find(params[:id])
+  end
 
   def post_params
     params.require(:portfolio).permit(
