@@ -1,6 +1,10 @@
 $(document).on('turbolinks:load', function () {
-  if (window.location.href == "http://localhost:3000/"|| window.location.href == "https://lit-falls-11546.herokuapp.com/"){
-    
+  
+  if (window.location.pathname == "/"|| window.location.pathname == "/portfolios"|| window.location.href == "https://lit-falls-11546.herokuapp.com/"){
+    // あとで本番で調査する
+    console.log(window.location)
+    console.log(window.location.pathname)
+
     function build_to_modal(pf) {
       var html = `<div class="modal js-modal_${pf.id}">
                     <div class="modal__bg js-modal-close">
