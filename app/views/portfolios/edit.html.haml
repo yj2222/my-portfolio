@@ -32,7 +32,7 @@
         = f.fields_for :images do |fi|
           .post__inner__form__middle
             = f.label :image, "Image (modalのイメージ、1枚のみ投稿可能) : "
-            = fi.file_field :image, value: "aaa"
+            = fi.file_field :image
 
         .post__form__action
           = f.submit "Send"
