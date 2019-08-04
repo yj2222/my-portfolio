@@ -19,6 +19,31 @@
   h1 {
     font-size: 50px;
   }
+  
+}
+
+.post__inner__validate {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 40px;
+  border: 3px dashed red;
+  box-sizing: border-box;
+  b {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: red;
+    
+  }
+  li {
+    list-style: none;
+  }
+}
+
+.error_message {
+  color: red;
+  font-size: 14px;
 }
 
 .post__inner__form {
@@ -35,6 +60,10 @@ input {
   border-radius: 3px;
 }
 
+input[type=file] {
+  height: 20px;
+}
+
 textarea {
   width: 100%;
   box-sizing: border-box;
@@ -44,4 +73,8 @@ textarea {
 
 .post__inner__form__middle {
   margin-top: 20px;
+}
+
+.post__form__action {
+  margin-top: 40px;
 }

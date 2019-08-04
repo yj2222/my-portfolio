@@ -3,37 +3,65 @@
     .post__inner__title
       %h1 New Post
     .post__inner__form
+      - if @post.errors.present?
+        .post__inner__validate
+          %b
+            = "※※※ #{@post.errors.count + @count} 件のエラーがあります！以下を確認し再度投稿して下さい！ ※※※"
       = form_for @post do |f|
         .post__innert__form__top
           = f.label :title, "Title : "
           = f.text_field :title
+        - if @post.errors.messages[:title].present?
+          - @post.errors.messages[:title].each do |message|
+            %b.error_message= message
         .post__inner__form__middle
           = f.label :sub_title, "Sub_title : "
           = f.text_field :sub_title
+        - if @post.errors.messages[:sub_title].present?
+          - @post.errors.messages[:sub_title].each do |message|
+            %b.error_message= message
         .post__inner__form__middle
           = f.label :top_image, "Top_image (Topページの画像、1枚のみ投稿可能) : "
-          = f.file_field :top_image
+          = f.file_field :top_image          
+        - if @error_message.present?
+          %b.error_message= @error_message
         .post__inner__form__middle
           = f.label :environment, "Environment : "
           = f.text_area :environment
+        - if @post.errors.messages[:environment].present?
+          - @post.errors.messages[:environment].each do |message|
+            %b.error_message= message
         .post__inner__form__middle
           = f.label :discription, "Discription : "
           = f.text_area :discription
+        - if @post.errors.messages[:discription].present?
+          - @post.errors.messages[:discription].each do |message|
+            %b.error_message= message
         .post__inner__form__middle
           = f.label :usage, "Usage : "
           = f.text_area :usage
+        - if @post.errors.messages[:usage].present?
+          - @post.errors.messages[:usage].each do |message|
+            %b.error_message= message
         .post__inner__form__middle
           = f.label :github_url, "Github_url : "
           = f.text_field :github_url
+        - if @post.errors.messages[:github_url].present?
+          - @post.errors.messages[:github_url].each do |message|
+            %b.error_message= message
         .post__inner__form__middle
           = f.label :app_url, "App_url : "
           = f.text_field :app_url
+        - if @post.errors.messages[:app_url].present?
+          - @post.errors.messages[:app_url].each do |message|
+            %b.error_message= message
 
         = f.fields_for :images do |fi|
           .post__inner__form__middle
             = f.label :image, "Image (modalのイメージ、1枚のみ投稿可能) : "
             = fi.file_field :image
+          - if @error_message.present?
+            %b.error_message= @error_message
 
-        .post__form__action
+        .post__form__action.actions
           = f.submit "Send"
-      

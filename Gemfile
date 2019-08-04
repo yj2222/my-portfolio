@@ -74,4 +74,5 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'devise'
 gem 'gon'
+gem 'rails-i18n'
 

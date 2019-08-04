@@ -12,8 +12,14 @@ class PortfoliosController < ApplicationController
   end
 
   def create
-    Portfolio.create(post_params)
-    redirect_to root_path
+    @post = Portfolio.new(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      set_count
+      @error_message = "※ 画像を投稿して下さい"
+      render :new
+    end
   end
 
   def destroy
@@ -54,4 +60,23 @@ class PortfoliosController < ApplicationController
       :app_url,
       images_attributes: [:image]).merge(user_id: current_user.id)
   end
+
+  def set_count
+    if params[:portfolio][:top_image].present?
+      if params[:portfolio][:images_attributes].present?
+        @count = 2
+      else
+        @post.images.build
+        @count = 1
+      end
+    else
+      if params[:portfolio][:images_attributes].present?
+        @count = 1
+      else
+        @post.images.build
+        @count = 0
+      end
+    end
+  end
+
 end
