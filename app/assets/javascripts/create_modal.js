@@ -1,9 +1,6 @@
 $(document).on('turbolinks:load', function () {
   
-  if (window.location.pathname == "/"|| window.location.pathname == "/portfolios"|| window.location.href == "https://lit-falls-11546.herokuapp.com/"){
-    // あとで本番で調査する
-    console.log(window.location)
-    console.log(window.location.pathname)
+  if (window.location.pathname == "/"|| window.location.pathname == "/portfolios"){
 
     function build_to_modal(pf) {
       var html = `<div class="modal js-modal_${pf.id}">
@@ -48,10 +45,8 @@ $(document).on('turbolinks:load', function () {
       gon.portfolios.forEach(function(pf){
         discription = pf.discription.replace(/\r?\n/g, '<br>')
         usage = pf.usage.replace(/\r?\n/g, '<br>')
-        
         modal = build_to_modal(pf, discription, usage)
         modal_list.append(modal)
-
       });
     });
 
