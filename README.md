@@ -23,6 +23,7 @@ This is my portfolio site.
   ・記事の編集<br>
   ・記事の削除<br>
   ・複数枚画像投稿、編集（▲）
+  ・新規投稿のバリデーション機能（presenceのみ）<br>
   ・Rspecを使った単体テスト（▲）<br>
   ・Rspecを使った統合テスト（▲）<br>
   ※（▲→未実装。現在実装中の機能。）<br>
