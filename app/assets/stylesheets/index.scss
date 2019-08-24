@@ -58,25 +58,27 @@ $blue-white-dark: rgb(151, 151, 254);
 }
 
 .portfolio__main {
-  max-width: 940px;
+  max-width: 991px;
   padding: 50px 0;
   margin: 0 auto;
-  h2 {
+  .portfolio__main__title {
     text-align: center;
-    padding-bottom: 50px;
-    font-size: 50px;
-    text-decoration: underline;
+    padding-bottom: 40px;
+    img {
+      width: 250px;
+    }
   }
   ul {
     font-size: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     li {
-      float: left;
-      width: 250px;
+      width: 300px;
       height: 500px;
       border: 1px solid $green-black;
       border-radius: 3px;
-      padding: 10px;
-      margin: 20px;
+      margin-bottom: 50px;
       position: relative;
       &:hover {
         box-shadow:0px 0px 10px 5px $green-black;
@@ -136,17 +138,16 @@ $blue-white-dark: rgb(151, 151, 254);
 .portfolio__low {
   background-image: url(low_image.jpg);
   background-size: cover;
-  height: 90vh;
+  height: 100%;
 }
 
 .portfolio__low__inner {
   background-color: rgba(0, 0, 0, 0.7);
   height: 100%;
   color: white;
-  h2 {
+  &--image {
     text-align: center;
-    font-size: 50px;
-    padding: 50px 0 30px;;
+    padding-top: 50px;
   }
   ul {
     display: flex;
@@ -160,6 +161,10 @@ $blue-white-dark: rgb(151, 151, 254);
       }
     }
   }
+}
+
+.profile {
+  padding: 30px 0 50px;
 }
 
 .profile__left__text {
@@ -267,4 +272,70 @@ $blue-white-dark: rgb(151, 151, 254);
     }
   }
 }
+
+.portfolio__produce {
+  padding-bottom: 50px;
+}
+
+.portfolio__produce__title {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.portfolio__produce__content {
+  display: flex;
+}
+
+.portfolio__produce__content__left {
+  width: 50%;
+  // border: 1px solid gray;
+  // outline: 4px solid rgba(128, 128, 128, 0.3);
+  // outline-offset: -4px;
+  a:hover {
+    opacity: 0.7;
+    translate: 0.3s;
+  }
+}
+
+.portfolio__produce__content__right {
+  width: 50%;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+
+  // position: relative;
+}
+
+.portfolio__produce__content__right--text {
+  padding-top: 20px;
+  // position: absolute;
+  // top: 10%;
+  h3 {
+    text-align: center;
+  }
+  p {
+    padding: 20px 50px;
+  }
+  b.marker-yellow {
+    background: linear-gradient(transparent 60%, rgb(255, 255, 72) 60%);
+  }
+  b.marker-yellow__text-red {
+    background: linear-gradient(transparent 60%, rgb(255, 255, 72) 60%);
+    color: rgb(255, 0, 0);
+  }
+  a {
+    padding: 0 5px;
+    color: rgb(0, 30, 255);
+    font-weight: bold;
+    &:hover {
+      color: rgb(118, 134, 255);
+      text-decoration: underline;
+      translate: 0.3s;
+    }
+  }
+}
+
+
+
+
+
+
 

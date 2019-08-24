@@ -19,7 +19,9 @@
         %p これは自分のポートフォリオを掲載するために作ったサイトです。
         %p 開発を始めてから、１年も立たない新人ですが、暖かい目で見ていただけると幸いです。
   .portfolio__main
-    %h2 portfolios
+    -# %h2 portfolios
+    .portfolio__main__title
+      = image_tag "title2.png"
     %ul.clearfix
       // リスト
       - @portfolios.each.with_index do |pf|
@@ -41,6 +43,17 @@
             .card__action-btn
               = link_to "Edit", edit_portfolio_path(pf.id)
               = link_to "Delete", portfolio_path(pf.id), method: :delete
+
+  .portfolio__produce
+    .portfolio__produce__title
+      = image_tag "title4.png", style: "width: 250px;"
+    .portfolio__produce__content
+      .portfolio__produce__content__left
+        = link_to "" do
+          = image_tag "my-portfolio_image1.png", style: "width: 100%;"
+      .portfolio__produce__content__right
+        = render "produce-text"
+    
 
   = render partial: "index_footer"
 
