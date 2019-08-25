@@ -44,15 +44,8 @@
               = link_to "Edit", edit_portfolio_path(pf.id)
               = link_to "Delete", portfolio_path(pf.id), method: :delete
 
-  .portfolio__produce
-    .portfolio__produce__title
-      = image_tag "title4.png", style: "width: 250px;"
-    .portfolio__produce__content
-      .portfolio__produce__content__left
-        = link_to "" do
-          = image_tag "my-portfolio_image1.png", style: "width: 100%;"
-      .portfolio__produce__content__right
-        = render "produce-text"
+  = render "produce"
+  = render "Study"
     
 
   = render partial: "index_footer"
