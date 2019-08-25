@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_124432) do
+ActiveRecord::Schema.define(version: 2019_08_25_093113) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2019_07_25_124432) do
     t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
+  create_table "study_outputs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.string "url", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_study_outputs_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
@@ -50,4 +59,5 @@ ActiveRecord::Schema.define(version: 2019_07_25_124432) do
 
   add_foreign_key "images", "portfolios"
   add_foreign_key "portfolios", "users"
+  add_foreign_key "study_outputs", "users"
 end

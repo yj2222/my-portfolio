@@ -1,0 +1,14 @@
+.post
+  .post__inner
+    .post__inner__title
+      %h1 New Post(study_output)
+    .post__inner__form
+      = form_for StudyOutput.new do |f|
+        .post__inner__form__top
+          = f.label :text, "Text : "
+          = f.text_area :text
+        .post__inner__form__middle
+          = f.label :url, "qiita_Url : "
+          = f.text_field :url
+        .post__form__action.actions
+          = f.submit "Send"

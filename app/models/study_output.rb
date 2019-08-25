@@ -1,0 +1,2 @@
+class StudyOutput < ApplicationRecord
+end

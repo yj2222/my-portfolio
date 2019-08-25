@@ -2,9 +2,8 @@ class PortfoliosController < ApplicationController
   before_action :set_post, only: [:destroy,:edit,:update]
 
   def index
-    @portfolios = Portfolio.all
     gon.portfolios = Portfolio.all
-  end
+   end
 
   def new
     @post = Portfolio.new

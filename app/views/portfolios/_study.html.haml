@@ -1,0 +1,27 @@
+.portfolio__study
+  .portfolio__study__title
+    = image_tag "title5.png", style: "width: 250px;"
+  .portfolio__study__text
+    %p 自身の勉強のため、qiitaにアウトプットしてます。
+    %p 自分でも何をしていたか、すぐに見返せるように投稿した記事をまとめました。参考にして頂けると幸いです。
+    
+  .portfolio__study__scroll-menu
+    %p ※以下はqiitaのリンクになります。
+    .portfolio__study__scroll-menu--link
+      - StudyOutput.all.each do |s_o|
+        = link_to s_o.url do
+          %table
+            %tr
+              %td.move-icon= icon "far", "arrow-alt-circle-right"
+              %td= s_o.text
+        - if user_signed_in? && s_o.user_id == current_user.id
+          .portfolio__study__scroll-action
+            %button 編集
+            %button 削除
+
+    - if user_signed_in?
+      .portfolio__study__scroll-menu--new
+        = link_to new_study_output_path do
+          %button 新規リンク作成
+  
+

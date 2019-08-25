@@ -24,22 +24,18 @@
       = image_tag "title2.png"
     %ul.clearfix
       // リスト
-      - @portfolios.each.with_index do |pf|
+      - Portfolio.all.each.with_index do |pf|
         %li.card
           .card__inner
-            %p.index
-              = pf.id
-            .card__inner__title
-              %h3
-                = pf.title
-              %p
-                = pf.sub_title
+            %p.index= pf.id
             = image_tag "#{pf.top_image}", class: "card__inner__image"
-            %h4 ■ 開発環境、使用した技術など
+            .card__inner__title
+              %h3= "・タイトル：#{pf.title}"
+              %p= "・概要：#{pf.sub_title}"
             .card__inner__environment
-              %p
-                = simple_format(pf.environment)
-          - if user_signed_in?
+              %h4 ・開発環境、使用した技術など：
+              = simple_format(pf.environment)
+          - if user_signed_in? && pf.user_id == current_user.id
             .card__action-btn
               = link_to "Edit", edit_portfolio_path(pf.id)
               = link_to "Delete", portfolio_path(pf.id), method: :delete
