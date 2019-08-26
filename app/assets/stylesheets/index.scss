@@ -377,6 +377,7 @@ $blue-white-dark: rgb(151, 151, 254);
     text-decoration: underline; 
     font-weight: bold;
     animation: flash 2s linear infinite;
+    vertical-align: top;
   }
   @keyframes flash {
     0%,100% {
