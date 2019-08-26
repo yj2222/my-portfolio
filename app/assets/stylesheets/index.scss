@@ -372,9 +372,23 @@ $blue-white-dark: rgb(151, 151, 254);
   padding: 20px;
   height: 300px;
   overflow: scroll;
-  .move-icon {
+  .first-contents {
+    color: orange; 
+    text-decoration: underline; 
+    font-weight: bold;
+    animation: flash 2s linear infinite;
+  }
+  @keyframes flash {
+    0%,100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  .icon {
     vertical-align: top;
-    padding: 3px 5px 0 0;
+    padding: 5px 5px 0 0;
   }
   @keyframes fluffy1 {
     50% { transform:translateX(-5px) }
@@ -402,5 +416,21 @@ $blue-white-dark: rgb(151, 151, 254);
   padding-top: 10px;
 }
 
+
+// .portfolio__study__scroll-menu--link {
+//   a:first-child {
+//     table {
+//       tbody {
+//         tr {
+//           td.move-icon {
+//             i {
+//               color: rgb(255, 0, 0);
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 

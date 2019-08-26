@@ -8,11 +8,15 @@
   .portfolio__study__scroll-menu
     %p ※以下はqiitaのリンクになります。
     .portfolio__study__scroll-menu--link
-      - StudyOutput.all.each do |s_o|
+      - StudyOutput.all.each_with_index do |s_o, i|
         = link_to s_o.url do
           %table
             %tr
-              %td.move-icon= icon "far", "arrow-alt-circle-right"
+              - if i == 0
+                %td.move-icon.first-contents new
+                %td.move-icon.icon= icon "far", "arrow-alt-circle-right"
+              - else
+                %td.move-icon.icon= icon "far", "arrow-alt-circle-right"
               %td= s_o.text
         - if user_signed_in? && s_o.user_id == current_user.id
           .portfolio__study__scroll-action
