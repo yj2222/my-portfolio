@@ -1,0 +1,93 @@
+$green-black: rgb(135, 164, 141);
+
+.post {
+  background-image: url("new_background.jpg");
+  height: 100vh;
+  background-size: cover;
+  font-family: 'Times New Roman', Times, serif;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: white;
+  .post__inner {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    .post__inner__title {
+      text-align: center;
+      padding: 50px;
+      h1 {
+        font-size: 50px;
+      }
+    }
+    .post__inner__form {
+      max-width: 600px;
+      height: 70%;
+      margin: 0 auto;
+      overflow: auto;
+      .post__inner__form__validate {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 10px;
+        margin-bottom: 40px;
+        border: 3px dashed red;
+        box-sizing: border-box;
+        b {
+          display: block;
+          width: 100%;
+          text-align: center;
+          background-color: red;
+          
+        }
+        li {
+          list-style: none;
+        }
+      }
+      .post__innert__form__top {
+      }
+      .post__inner__form__middle {
+        margin-top: 20px;
+      }
+      .post__form__inner__action {
+        margin-top: 40px;
+      }
+      .actions {
+        input {
+          width: 100%;
+          height: 40px;
+          border-radius: 3px;
+          margin: 10px 0;
+          background-color: $green-black;
+          border: 1px solid $green-black;
+          &:hover {
+            background-color: rgb(56, 164, 56);
+            color: white;
+            box-shadow:0px 0px 10px 5px $green-black;
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+}
+.error_message {
+  color: red;
+  font-size: 14px;
+}
+input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  border-radius: 3px;
+}
+input[type=file] {
+  height: 20px;
+}
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  height: 200px;
+  border-radius: 3px;
+  display:block;
+}
+
+
+

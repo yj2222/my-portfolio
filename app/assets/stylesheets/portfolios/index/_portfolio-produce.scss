@@ -1,0 +1,70 @@
+.portfolio__produce {
+  padding-bottom: 50px;
+  .portfolio__produce__title {
+    text-align: center;
+    padding-bottom: 50px;
+  }
+  .portfolio__produce__content {
+    display: flex;
+    .portfolio__produce__content__left {
+      width: 50%;
+      // fade用css
+      display: none;
+      a:hover {
+        opacity: 0.7;
+        translate: 0.3s;
+      }
+    }
+    .portfolio__produce__content__right {
+      width: 50%;
+      border: 1px solid rgba(128, 128, 128, 0.3);
+      .portfolio__produce__content__right--text {
+        padding-top: 20px;
+        h3 {
+          text-align: center;
+        }
+        p {
+          padding: 20px 50px;
+        }
+        b.marker-yellow {
+          background: linear-gradient(transparent 60%, rgb(255, 255, 72) 60%);
+        }
+        b.marker-yellow__text-red {
+          background: linear-gradient(transparent 60%, rgb(255, 255, 72) 60%);
+          color: rgb(255, 0, 0);
+        }
+        a {
+          padding: 0 5px;
+          color: rgb(0, 30, 255);
+          font-weight: bold;
+          &:hover {
+            color: rgb(118, 134, 255);
+            text-decoration: underline;
+            translate: 0.3s;
+          }
+        }
+      }
+    }
+  }
+}
+.fade_off {
+  opacity: 0;
+  -webkit-transition: all 2s;
+  -moz-transition: all 2s;
+  -o-transition: all 2s;
+  -ms-transition: all 2s;
+  transition: all 2s;
+}
+.fade_on {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+

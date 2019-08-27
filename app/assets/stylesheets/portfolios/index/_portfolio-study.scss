@@ -1,0 +1,72 @@
+.portfolio__study {
+  padding-bottom: 50px;
+  .portfolio__study__title {
+    text-align: center;
+  }
+  .portfolio__study__text {
+    text-align: center;
+    padding: 50px 0;
+  }
+  .portfolio__study__scroll-menu {
+    max-width: 992px;
+    margin: 0 auto;
+    .portfolio__study__scroll-menu--link {
+      border: 1px solid gray;
+      padding: 20px;
+      height: 300px;
+      overflow: scroll;
+      .first-contents {
+        color: orange; 
+        text-decoration: underline; 
+        font-weight: bold;
+        animation: flash 2s linear infinite;
+        vertical-align: top;
+      }
+      @keyframes flash {
+        0%,100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      .icon {
+        vertical-align: top;
+        padding: 5px 5px 0 0;
+      }
+      @keyframes fluffy1 {
+        50% { transform:translateX(-5px) }
+      }
+      a {
+        font-size: 18px;
+        &:hover{
+          translate: 0.3s;
+          color: rgb(130, 130, 252);
+          text-decoration: underline;
+          .move-icon {
+            animation: fluffy1 2s ease infinite;
+            translate: 0.3s;
+            color: blue;
+          }
+        }
+      }
+      .portfolio__study__scroll-action {
+        text-align: center;
+      }
+    }
+    .portfolio__study__scroll-menu--new {
+      text-align: right;
+      padding-top: 10px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

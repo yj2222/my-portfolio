@@ -4,7 +4,7 @@
       %h1 New Post
     .post__inner__form
       - if @post.errors.present?
-        .post__inner__validate
+        .post__inner__form__validate
           %b
             = "※※※ #{@post.errors.count + @count} 件のエラーがあります！以下を確認し再度投稿して下さい！ ※※※"
       = form_for @post do |f|
@@ -63,5 +63,5 @@
           - if @error_message.present?
             %b.error_message= @error_message
 
-        .post__form__action.actions
+        .post__form__inner__action.actions
           = f.submit "Send"
