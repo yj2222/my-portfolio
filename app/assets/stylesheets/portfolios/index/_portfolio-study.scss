@@ -10,33 +10,11 @@
   .portfolio__study__scroll-menu {
     max-width: 992px;
     margin: 0 auto;
-    .portfolio__study__scroll-menu--link {
+    .portfolio__study__scroll-menu__link {
       border: 1px solid gray;
       padding: 20px;
       height: 300px;
       overflow: scroll;
-      .first-contents {
-        color: orange; 
-        text-decoration: underline; 
-        font-weight: bold;
-        animation: flash 2s linear infinite;
-        vertical-align: top;
-      }
-      @keyframes flash {
-        0%,100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-      }
-      .icon {
-        vertical-align: top;
-        padding: 5px 5px 0 0;
-      }
-      @keyframes fluffy1 {
-        50% { transform:translateX(-5px) }
-      }
       a {
         font-size: 18px;
         &:hover{
@@ -49,11 +27,42 @@
             color: blue;
           }
         }
-      }
-      .portfolio__study__scroll-action {
-        text-align: center;
+        table {
+          margin-bottom: 10px;
+          tbody {
+            tr {
+              td.first-contents {
+                color: orange; 
+                text-decoration: underline; 
+                font-weight: bold;
+                animation: flash 2s linear infinite;
+                vertical-align: top;
+              }
+              @keyframes flash {
+                0%,100% {
+                  opacity: 1;
+                }
+                50% {
+                  opacity: 0;
+                }
+              }
+              .icon {
+                vertical-align: top;
+                padding: 5px 5px 0 0;
+              }
+              @keyframes fluffy1 {
+                50% { transform:translateX(-5px) }
+              }
+            }
+          }
+        }
+        .portfolio__study__scroll-menu__link--action {
+          text-align: center;
+          margin-bottom: 10px;
+        }
       }
     }
+    
     .portfolio__study__scroll-menu--new {
       text-align: right;
       padding-top: 10px;
