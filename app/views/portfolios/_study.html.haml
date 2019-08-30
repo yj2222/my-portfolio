@@ -20,8 +20,10 @@
               %td= s_o.text
           - if user_signed_in? && s_o.user_id == current_user.id
             .portfolio__study__scroll-menu__link--action
-              %button 編集
-              %button 削除
+              = link_to edit_study_output_path(s_o.id) do
+                %button 編集
+              = link_to study_output_path(s_o.id), method: :delete do
+                %button 削除
 
     - if user_signed_in?
       .portfolio__study__scroll-menu--new

@@ -1,3 +1,10 @@
+- flash.each do |message_type, message|
+  .flash
+    - if message_type == "success"
+      %p.flash__success= message
+    - else 
+      %p.flash__danger= message
+
 .portfolio
   .portfolio__top
     .portfolio__top__inner

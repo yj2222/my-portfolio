@@ -24,6 +24,7 @@ class PortfoliosController < ApplicationController
   def destroy
     @post.destroy
     redirect_to root_path
+    
   end
 
   def edit
@@ -40,6 +41,10 @@ class PortfoliosController < ApplicationController
     @post.update(post_params)
     redirect_to root_path
   end
+
+  def produce_school
+  end
+
 
   private
 

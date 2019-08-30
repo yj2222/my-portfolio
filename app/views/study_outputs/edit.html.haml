@@ -1,0 +1,21 @@
+- flash.each do |message_type, message|
+  .flash
+    - if message_type == "success"
+      %p.flash__success= message
+    - else 
+      %p.flash__danger= message
+      
+.post
+  .post__inner
+    .post__inner__title
+      %h1 Edit Post(study_output)
+    .post__inner__form
+      = form_for @post do |f|
+        .post__inner__form__top
+          = f.label :text, "Text : "
+          = f.text_area :text
+        .post__inner__form__middle
+          = f.label :url, "qiita_Url : "
+          = f.text_field :url
+        .post__form__action.actions
+          = f.submit "Send"

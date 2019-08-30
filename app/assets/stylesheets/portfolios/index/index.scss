@@ -1,0 +1,18 @@
+.flash {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  .flash__success {
+    background: rgb(132, 255, 132);
+    color: green;
+  }
+  .flash__danger {
+    background: orange;
+    color: red;
+  }
+}
